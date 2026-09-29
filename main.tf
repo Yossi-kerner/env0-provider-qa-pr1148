@@ -4,7 +4,25 @@ terraform {
   }
 }
 
-provider "env0" {}
+variable "api_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "api_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "api_endpoint" {
+  type = string
+}
+
+provider "env0" {
+  api_key      = var.api_key
+  api_secret   = var.api_secret
+  api_endpoint = var.api_endpoint
+}
 
 variable "project_id" {
   type = string
