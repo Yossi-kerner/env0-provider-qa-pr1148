@@ -1,0 +1,13 @@
+version: 2
+deploy:
+  steps:
+    terraformInit:
+      before:
+        - name: Build PR provider
+          run: bash ./build-provider.sh
+destroy:
+  steps:
+    terraformInit:
+      before:
+        - name: Build PR provider
+          run: bash ./build-provider.sh
